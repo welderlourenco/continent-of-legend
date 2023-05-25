@@ -6,6 +6,12 @@ scripts:
     - cp .env.dist .env
     - kool docker kooldev/node:18 npm --prefix ./apps/dataserver install
     - kool start
+    - kool run migrate
 
   # kool run -e NAME=? make:migration
-  make:migration: kool run npm-ds-typeorm -- migration:generate -d typeorm.ds.ts apps/dataserver/database/migrations/$NAME
+  make:migration: kool run npm-ds-typeorm -- migration:generate -d typeorm.ds.ts src/database/migrations/$NAME
+  
+  # Migrate
+  migrate: kool run npm-ds-typeorm -- migration:run -d typeorm.ds.ts
+  migrate:rollback: kool run npm-ds-typeorm -- migration:revert -d typeorm.ds.ts
+  migrate:drop: kool run npm-ds-typeorm -- schema:drop -d typeorm.ds.ts

@@ -1,5 +1,5 @@
 {
-  "name": "dataserver",
+  "author": "Welder Lourenço <welderlourenco@gmail.com>",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
