@@ -1,4 +1,11 @@
 scripts:
-  node: kool exec app node
-  npm: kool docker kooldev/node:16 npm
-  npx: kool docker kooldev/node:16 npx
+  npm-ds: kool exec dataserver npm --prefix ./apps/dataserver
+  npm-ds-typeorm: kool run npm-ds run typeorm
+
+  setup:
+    - cp .env.dist .env
+    - kool docker kooldev/node:18 npm --prefix ./apps/dataserver install
+    - kool start
+
+  # kool run -e NAME=? make:migration
+  make:migration: kool run npm-ds-typeorm -- migration:generate -d typeorm.ds.ts apps/dataserver/database/migrations/$NAME
