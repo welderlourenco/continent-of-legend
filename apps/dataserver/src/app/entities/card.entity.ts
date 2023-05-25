@@ -1,6 +1,7 @@
 import { CardModifierType } from '@shared/types/card-modifier.type';
-import { Column, CreateDateColumn, Entity, Index, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, Index, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Character } from './character.entity';
+import { Deck } from './deck.entity';
 
 @Entity({ name: 'cards' })
 export class Card {
@@ -31,4 +32,7 @@ export class Card {
   @ManyToOne(() => Character)
   @JoinColumn({ name: 'character_id' })
   character: Character;
+
+  @OneToMany(() => Deck, (deck) => deck.card)
+  decks?: Deck[];
 }

@@ -1,5 +1,6 @@
 import { CharacterClassEnum } from '@shared/enums/character-class.enum';
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, Index, JoinColumn, ManyToOne, PrimaryGeneratedColumn, Unique, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, Index, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, Unique, UpdateDateColumn } from "typeorm";
+import { Deck } from './deck.entity';
 import { User } from './user.entity';
 
 @Entity({ name: 'characters' })
@@ -41,4 +42,7 @@ export class Character {
   @ManyToOne(() => User)
   @JoinColumn({ name: 'user_id' })
   user: User;
+
+  @OneToMany(() => Deck, (deck) => deck.character)
+  decks?: Deck[];
 }
