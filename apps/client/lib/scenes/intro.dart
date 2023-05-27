@@ -11,14 +11,14 @@ class IntroScene extends StatefulWidget {
 class _IntroSceneState extends State<IntroScene> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
-  late AudioPlayer _player;
+  static late AudioPlayer _player;
 
   @override
   void initState() {
     super.initState();
 
     _controller = AnimationController(
-      duration: const Duration(seconds: 1),
+      duration: const Duration(seconds: 2),
       vsync: this,
     );
     _animation = CurvedAnimation(
@@ -26,6 +26,8 @@ class _IntroSceneState extends State<IntroScene> with SingleTickerProviderStateM
       curve: Curves.easeIn,
     );
     _player = AudioPlayer();
+    _player.setPlayerMode(PlayerMode.lowLatency);
+    _player.setSource(AssetSource('sfx/intro_scene_swordSlice.wav'));
 
     animateScene();
   }
@@ -38,7 +40,7 @@ class _IntroSceneState extends State<IntroScene> with SingleTickerProviderStateM
   }
 
   void animateScene() async {
-    await _player.play(AssetSource('sfx/intro_scene_swordSlice.wav'));
+    await _player.resume();
     await _controller.forward();
   }
 
@@ -50,8 +52,8 @@ class _IntroSceneState extends State<IntroScene> with SingleTickerProviderStateM
         child: FadeTransition(
           opacity: _animation,
           child: SizedBox(
-            width: 237,
-            height: 192,
+            width: 118.5,
+            height: 96,
             child: Image.asset('assets/images/intro_scene_webzen.png'),
           ),
         ),
