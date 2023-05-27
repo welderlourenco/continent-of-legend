@@ -1,9 +1,11 @@
 scripts:
+  npm-cs: kool exec clientserver npm --prefix ./apps/clientserver
   npm-ds: kool exec dataserver npm --prefix ./apps/dataserver
   npm-ds-typeorm: kool run npm-ds run typeorm
 
   setup:
     - cp .env.dist .env
+    - kool docker kooldev/node:18 npm --prefix ./apps/clientserver install
     - kool docker kooldev/node:18 npm --prefix ./apps/dataserver install
     - kool start
     - kool run migrate
