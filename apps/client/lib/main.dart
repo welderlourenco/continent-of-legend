@@ -1,3 +1,15 @@
+import 'package:client/scenes/battle-pre.dart';
+import 'package:client/scenes/battle.dart';
+import 'package:client/scenes/collection.dart';
+import 'package:client/scenes/create-character.dart';
+import 'package:client/scenes/events.dart';
+import 'package:client/scenes/home.dart';
+import 'package:client/scenes/login.dart';
+import 'package:client/scenes/register.dart';
+import 'package:client/scenes/reward.dart';
+import 'package:client/scenes/select-character.dart';
+import 'package:client/scenes/stat.dart';
+import 'package:client/scenes/store.dart';
 import 'package:flutter/material.dart';
 
 import 'scenes/intro.dart';
@@ -12,30 +24,61 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    Widget materialApp = MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a blue toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const IntroScene(),
+      initialRoute: '/intro',
+      onGenerateRoute: (settings) {
+        if (settings.name == '/intro') {
+          return PageRouteBuilder(pageBuilder: (_, __, ___) => const IntroScene());
+        }
+        if (settings.name == '/register') {
+          return PageRouteBuilder(pageBuilder: (_, __, ___) => const RegisterScene());
+        }
+        if (settings.name == '/login') {
+          return PageRouteBuilder(pageBuilder: (_, __, ___) => const LoginScene());
+        }
+        if (settings.name == '/selectCharacter') {
+          return PageRouteBuilder(pageBuilder: (_, __, ___) => const SelectCharacterScene());
+        }
+        if (settings.name == '/createCharacter') {
+          return PageRouteBuilder(pageBuilder: (_, __, ___) => const CreateCharacterScene());
+        }
+        if (settings.name == '/home') {
+          return PageRouteBuilder(pageBuilder: (_, __, ___) => const HomeScene());
+        }
+        if (settings.name == '/home') {
+          return PageRouteBuilder(pageBuilder: (_, __, ___) => const HomeScene());
+        }
+        if (settings.name == '/pre-battle') {
+          return PageRouteBuilder(pageBuilder: (_, __, ___) => const PreBattleScene());
+        }
+        if (settings.name == '/battle') {
+          return PageRouteBuilder(pageBuilder: (_, __, ___) => const BattleScene());
+        }
+        if (settings.name == '/reward') {
+          return PageRouteBuilder(pageBuilder: (_, __, ___) => const RewardScene());
+        }
+        if (settings.name == '/store') {
+          return PageRouteBuilder(pageBuilder: (_, __, ___) => const StoreScene());
+        }
+        if (settings.name == '/stat') {
+          return PageRouteBuilder(pageBuilder: (_, __, ___) => const StatScene());
+        }
+        if (settings.name == '/collection') {
+          return PageRouteBuilder(pageBuilder: (_, __, ___) => const CollectionScene());
+        }
+        if (settings.name == '/events') {
+          return PageRouteBuilder(pageBuilder: (_, __, ___) => const EventsScene());
+        }
+        return null;
+      },
     );
+
+    return materialApp;
+    // return Padding(
+    //   padding: const EdgeInsets.all(20.0),
+    //   child: materialApp
+    // );
   }
 }
 

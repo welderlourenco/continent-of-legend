@@ -1,4 +1,6 @@
 scripts:
+  client: cd apps/client && flutter run
+
   npm-cs: kool exec clientserver npm --prefix ./apps/clientserver
   npm-ds: kool exec dataserver npm --prefix ./apps/dataserver
   npm-ds-typeorm: kool run npm-ds run typeorm

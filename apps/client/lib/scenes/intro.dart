@@ -30,6 +30,11 @@ class _IntroSceneState extends State<IntroScene> with SingleTickerProviderStateM
     _player.setSource(AssetSource('sfx/intro_scene_swordSlice.wav'));
 
     animateScene();
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        Navigator.of(context).pushReplacementNamed('/login');
+      }
+    });
   }
 
   @override
@@ -40,7 +45,7 @@ class _IntroSceneState extends State<IntroScene> with SingleTickerProviderStateM
   }
 
   void animateScene() async {
-    await _player.resume();
+    // await _player.resume();
     await _controller.forward();
   }
 
