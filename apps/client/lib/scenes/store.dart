@@ -19,6 +19,18 @@ class _StoreSceneState extends State<StoreScene> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           getContinentOfLegendLogoWidget(),
+          
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // Text('Level: 176', style: getFontStyle(15, color: Colors.white)),
+                // Text('HP/MP: 110/30', style: getFontStyle(15, color: Colors.white)),
+                Text('Golds: 899', style: getFontStyle(15, color: Colors.yellow.shade600)),
+              ],
+            ),
+          ),
 
           Expanded(
             child: Column(

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 Widget getContinentOfLegendLogoWidget() {
   return  Container(
-    margin: const EdgeInsets.only(top: 20.0),
+    margin: const EdgeInsets.only(top: 40.0),
     width: double.infinity,
     height: 100,
     color: Colors.blueGrey,

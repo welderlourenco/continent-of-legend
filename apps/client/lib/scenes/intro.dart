@@ -51,8 +51,11 @@ class _IntroSceneState extends State<IntroScene> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext ctx) {
+    print(MediaQuery.of(context));
+    print(MediaQuery.of(context));
+
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       body: Center(
         child: FadeTransition(
           opacity: _animation,

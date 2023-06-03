@@ -19,6 +19,38 @@ class _StatSceneState extends State<StatScene> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           getContinentOfLegendLogoWidget(),
+
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Golds: 899', style: getFontStyle(15, color: Colors.yellow.shade600)),
+                Text('pontos dist: 5/5', style: getFontStyle(15, color: Colors.yellow.shade600)),
+              ],
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Level: 176', style: getFontStyle(15, color: Colors.white)),
+                Text('exp: 44484864/108005845', style: getFontStyle(15, color: Colors.white)),
+              ],
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('HP/MP: 770/301', style: getFontStyle(15, color: Colors.white)),
+              ],
+            ),
+          ),
           
           Expanded(
             child: Column(
@@ -40,9 +72,6 @@ class _StatSceneState extends State<StatScene> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('pontos para distribuir 5/5', style: getFontStyle(20, color: Colors.yellow.shade600)),
-                Text('', style: getFontStyle(13, color: Colors.purple.shade600)),
-
                 Text('força: 28 (dmg base: 1~4)', style: getFontStyle(13, color: Colors.purple.shade600)),
                 Button(
                   text: '+1 força',
